@@ -45,6 +45,10 @@ app.route(
 						/*headers: Joi.object({
 							authorization: Joi.string().required()
 						}).unknown(),*/
+				        cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with']
+				        }
 					},
 					handler: async (req, reply) => {
 						try {
