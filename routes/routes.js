@@ -23,7 +23,7 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
 		app = new Hapi.Server({
-		host: 'https://amigocat.herokuapp.com',	
+		host: 'amigocat.herokuapp.com',	
 		port: process.env.PORT || 8080 //process.env.PORT
 	});
 
