@@ -4,22 +4,22 @@ const Hapi = require('hapi'),//Gerencia Rotas
 		HapiSwagger = require('hapi-swagger'),//HapiSwagger para a documentação
 		Inert = require('inert'),//Plugin que provê páginas estáticas. Nesse projeto serve para ver a documentação
 		Vision = require('vision'),//Plugin que suporta templates de páginas
-		Database = require('./config/database'),//Instância de Banco de dados
+		Database = require('../config/database'),//Instância de Banco de dados
 	    BD = new Database(),
-	    Agricultor = require('./controllers/agricultor'),
+	    Agricultor = require('../controllers/agricultor'),
 	    AgricultorOB = new Agricultor(),
-	    Usuario = require('./controllers/usuario');
+	    Usuario = require('../controllers/usuario');
 	    UsuarioOB = new Usuario(),
-	    Anuncio = require('./controllers/anuncio'),
+	    Anuncio = require('../controllers/anuncio'),
 	    AnuncioOB = new Anuncio(),
-	    Chamado = require('./controllers/chamado'),
+	    Chamado = require('../controllers/chamado'),
 	    ChamadoOB = new Chamado(),
-	    Consultor = require('./controllers/consultor'),
+	    Consultor = require('../controllers/consultor'),
 	    ConsultorOB = new Consultor(),
-	    Produto = require('./controllers/produto'),
+	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
 		app = Hapi.server({
-		host: process.env.HOST//'localhost',
+		host: process.env.HOST || 'localhost',
 		port: process.env.PORT //process.env.PORT
 	});
 
