@@ -42,9 +42,9 @@ app.route(
 					notes: 'Retorna todos anuncios',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
