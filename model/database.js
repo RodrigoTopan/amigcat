@@ -14,7 +14,7 @@ class Database {
  	}
 
 	async conectar(){
-		const conn_uri = 'postgres://mlasqjzdzynuxx:4958ae1cec611095b7b74cb3662fe0f795f5ab87570c53cc4894e51eecc920ea@ec2-23-23-222-184.compute-1.amazonaws.com:5432/d3ohiueut8bvbm';
+		const conn_uri = process.env.DATABASE;
 		//const conn = conn_uri;//process.env.DATABASE_URL ||
 		try{
 			this.sequelize = new Sequelize(

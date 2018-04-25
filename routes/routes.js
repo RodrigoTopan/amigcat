@@ -1,10 +1,14 @@
+const { config } = require('dotenv');
+if (process.env.NODE_ENV === 'production') config({ path: 'config/.env.prod' });
+else config({ path: 'config/.env.dev' });
+
 const Hapi = require('hapi'),//Gerencia Rotas
 		//HapiPino = require('hapi-pino'),//Plugin que provê alguns logs
 		Joi = require('joi'),//Joi para realizar validação dos requests
 		HapiSwagger = require('hapi-swagger'),//HapiSwagger para a documentação
 		Inert = require('inert'),//Plugin que provê páginas estáticas. Nesse projeto serve para ver a documentação
 		Vision = require('vision'),//Plugin que suporta templates de páginas
-		Database = require('../config/database'),//Instância de Banco de dados
+		Database = require('../model/database'),//Instância de Banco de dados
 	    BD = new Database(),
 	    Agricultor = require('../controllers/agricultor'),
 	    AgricultorOB = new Agricultor(),

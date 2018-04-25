@@ -1,1 +1,1 @@
-web: npm start main.js
+web: npm run prod
