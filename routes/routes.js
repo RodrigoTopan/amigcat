@@ -38,6 +38,10 @@ app.route(
 				method: 'GET',
 				path: '/anuncio',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with']
+				    },
 					description: 'Rota para listar todos anuncios',
 					notes: 'Retorna todos anuncios',
 					tags: ['api'],
@@ -45,10 +49,6 @@ app.route(
 						/*headers: Joi.object({
 							authorization: Joi.string().required()
 						}).unknown(),*/
-				        cors: {
-				            origin: ['*'],
-				            additionalHeaders: ['cache-control', 'x-requested-with']
-				        }
 					},
 					handler: async (req, reply) => {
 						try {
