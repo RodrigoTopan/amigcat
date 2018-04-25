@@ -19,8 +19,8 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    Produto = require('./controllers/produto'),
 	    ProdutoOB = new Produto(),
 		app = Hapi.server({
-		host: 'localhost',
-		port: 7000 //process.env.PORT
+		host: process.env.HOST//'localhost',
+		port: process.env.PORT //process.env.PORT
 	});
 
 class Routes{
