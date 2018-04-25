@@ -4,6 +4,53 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>Cadastro de usuario</title>
   <meta charset="UTF-8">
+        <!-- JQuery -->
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+
+        $('#btn-publicar').click(function(){
+
+          // criar um formData
+          var formData = new FormData();
+
+          var nomeProduto = document.getElementById("nomeProduto").value;
+          var descricaoProduto = document.getElementById("descricaoProduto").value;
+          var precoProduto = document.getElementById("precoProduto").value;
+          var agricultor = document.getElementById("agricultor").value;
+          var dataInicio = document.getElementById("dataInicio").value;
+          var dataFim = document.getElementById("dataFim").value;
+
+          //id, foto, descricao, preco, dataInicio, dataFim
+          //formData.append("nomeProduto", nomeProduto);
+          formData.append("descricao", descricaoProduto);
+          formData.append("preco", precoProduto);
+          //formData.append("agricultor", agricultor);
+          formData.append("dataInicio", dataInicio);
+          formData.append("dataFim", dataFim);
+
+          // criar xmlhttprequest
+          var xhr = new XMLHttpRequest();
+
+          // verificar as mudanças de estado
+          xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+              var resposta = xhr.responseText;
+              document.getElementById('mensagem').innerHTML = resposta;
+            }
+          }
+
+          //fazer o envio do nosso request
+          xhr.open("POST", "http://localhost:8080/anuncio");
+          xhr.send(formData);
+        });
+
+      });
+    </script>
+
+  </head>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -61,23 +108,23 @@
  <table>
    <tr>
      <th>Nome Produto: </th> &nbsp;
-     <th colspan="50" ><input type="text" name="nomeProduto" size="55"></th> 
+     <th colspan="50" ><input type="text" id="nomeProduto" size="55"/></th> 
    </tr>
    <tr>
      <th>Descrição: </th> &nbsp;
-     <th colspan="50"><textarea name="descricaoProduto" rows="5" cols="57" ></textarea></th> 
+     <th colspan="50"><textarea id="descricaoProduto" rows="5" cols="57"/></textarea></th> 
    </tr>
    <tr>
      <th>Preço: </th> &nbsp;
-     <th><input type="text" name="precoProduto"></th> 
+     <th><input type="text" id="precoProduto"/></th> 
      <th>Agricultor: </th> &nbsp;
-     <th><input type="text" name="agricultor"></th> 
+     <th><input type="text" id="agricultor"/></th> 
    </tr>
     <tr>
      <th>Data Inicio: </th> &nbsp;
-     <th><input type="text" name="dataInicio"></th> 
+     <th><input type="text" id="dataInicio"/></th> 
      <th>Data Fim: </th> &nbsp;
-     <th><input type="text" name="dataFim"></th> 
+     <th><input type="text" id="dataFim"/></th> 
    </tr>
  </table>
  <tr>
@@ -89,7 +136,7 @@
 
  <br>
 <br> &emsp; &emsp; &emsp; &emsp; &emsp;
-    <input  class="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Enviar Cadastro">
+    <input  class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="btn-publicar" value="Enviar Cadastro">
     <input  class="btn btn-outline-primary my-2 my-sm-0" type="reset" value="Limpar Campos">
   
 </form>

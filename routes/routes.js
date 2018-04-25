@@ -22,9 +22,9 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    ConsultorOB = new Consultor(),
 	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
-		app = new Hapi.Server({
-		port: process.env.PORT || 8080 //process.env.PORT
-	});
+		app = new Hapi.Server({ 
+			port: process.env.PORT || 8080 //process.env.PORT 
+		});
 
 class Routes{
  async rotas(){//Utilização de arrow functions
@@ -95,9 +95,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo anuncio',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							foto: Joi.string()
 							.min(3)
@@ -1088,6 +1088,13 @@ app.route(
 
 			await app.start();
 			console.log(`Servidor rodando na porta : ${app.info.port}`);
+
+		    //gambi para pegar o host certo no heroku
+			    app.ext('onRequest', async (request, h) => {
+			      request.headers['x-forwarded-host'] = (request.headers['x-forwarded-host'] || request.info.host);
+			      return h.continue;
+			    });
+
 		}
 		catch (e) {
 			console.log('Erro com servidor' + e);
