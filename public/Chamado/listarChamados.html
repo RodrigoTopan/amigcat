@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Cadastro de usuario</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Amigo Cat</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cadastros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="Cad_usuario.html">Cadastrar Usuário</a>
+            <a class="dropdown-item" href="Cad_Funcionario.html">Cadastrar Funcionário</a>
+            <a class="dropdown-item" href="Cad_consultor.html">Cadastrar Consultor</a>
+            <a class="dropdown-item" href="#">Cadastrar Agricultor</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="Produto_Anuncio.html">Cadastrar Anúncio</a>
+            <a class="dropdown-item" href="Cad_Produto.html">Cadastrar Produto</a>
+            <a class="dropdown-item" href="Novo_chamado.html">Cadastrar Chamado</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Listar Cadastros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="listarUsuarios.html">Listar Usuários</a>
+            <a class="dropdown-item" href="listarFuncionarios.html">Listar Funcionários</a>
+            <a class="dropdown-item" href="listarConsultores.html">Listar Consultores</a>
+            <a class="dropdown-item" href="#">Listar Agricultores</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="listarAnuncios.html">Listar Anúncios</a>
+            <a class="dropdown-item" href="listarProdutos.html">Listar Produtos</a>
+            <a class="dropdown-item" href="listarChamados.html">Listar Chamados</a>
+          </div>
+        </li>
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Usuário" aria-label="Search">
+        <input class="form-control mr-sm-2" type="password" placeholder="Senha" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Entrar</button>
+      </form>
+    </div>
+  </nav>
+
+<br>
+<center>
+<h1>Listagem de Chamados</h1>
+<br>
+
+<table border="1">
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Início</th>
+    <th>Término</th>
+    <th>Funcionário</th>
+    <th>Foto</th>
+    <th><b>&ensp;&ensp;&ensp;-</b></th>
+    <th><b>&ensp;&ensp;&ensp;-</b></th>
+  </tr>
+  <tr>
+    <td>Tomate</td>
+    <td>Não cresce meu tomate</td>
+    <td>24/04/2018</td>
+    <td> - </td>
+    <td>João da Silva</td>
+    <td>tomate.jpg</td>
+    <td rowspan="2"><input class="btn btn-outline-primary my-2 my-sm-0" type="button" name="" value="Alterar"> </td>
+    <td rowspan="2"><input class="btn btn-outline-primary my-2 my-sm-0" type="button" name="" value="Excluir"> </td>
+  </tr>
+ </table>
+
+ </center>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>
