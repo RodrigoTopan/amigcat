@@ -22,9 +22,9 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    ConsultorOB = new Consultor(),
 	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
-		app = Hapi.server({
+		app = new Hapi.Server({
 		host: process.env.HOST || 'localhost',
-		port: process.env.PORT //process.env.PORT
+		port: process.env.PORT || 8080 //process.env.PORT
 	});
 
 class Routes{
