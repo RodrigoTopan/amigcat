@@ -38,12 +38,12 @@ app.route(
 				method: 'GET',
 				path: '/anuncio',
 				config: {
-					/*cors: {
+					cors: {
 				            origin: ['*'],
 				            additionalHeaders: ['cache-control', 'x-requested-with'],
 				            'access-control-request-method': 'GET',
 						    'access-control-request-headers': ''
-				    },*/
+				    },
 					description: 'Rota para listar todos anuncios',
 					notes: 'Retorna todos anuncios cadastrados',
 					tags: ['api'],
@@ -73,9 +73,9 @@ app.route(
 					notes: 'Essa rota retorna os dados de um anuncio pesquisado por ID',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						//Params são os valores recebidos pela url
 						params: {
 							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
