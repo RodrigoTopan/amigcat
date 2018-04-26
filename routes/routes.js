@@ -97,12 +97,12 @@ app.route(
 				method: 'POST',
 				path: '/anuncio',
 				config: {
-				    /*cors: {
+					cors: {
 				            origin: ['*'],
 				            additionalHeaders: ['cache-control', 'x-requested-with'],
-				            'access-control-request-method': 'GET',
-						    'access-control-request-headers': ''
-				    },*/
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para cadastrar novos anuncios',
 					notes: 'Rota que realiza cadastro de um novo anuncio',
 					tags: ['api'],
@@ -154,6 +154,12 @@ app.route(
 				method: 'PUT',
 				path: '/anuncio/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },					
 					description: 'Rota para alterar um anuncio específico por ID',
 					notes: 'Esta rota realiza a alteração no anuncio pesquisado',
 					tags: ['api'],
@@ -194,6 +200,12 @@ app.route(
 				method: 'DELETE',
 				path: '/anuncio/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para remover um anuncio específico por ID',
 					notes: 'Remove o registro completo de um anuncio pesquisado',
 					tags: ['api'],
@@ -227,6 +239,12 @@ app.route(
 				method: 'GET',
 				path: '/agricultor',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar todos Agricultores',
 					notes: 'Retorna todos Agricultores',
 					tags: ['api'],
@@ -252,6 +270,12 @@ app.route(
 				method: 'GET',
 				path: '/agricultor/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar o registro de um Agricultor específico',
 					notes: 'Essa rota retorna os dados de um Agricultor pesquisado por ID',
 					tags: ['api'],
@@ -280,6 +304,12 @@ app.route(
 				method: 'POST',
 				path: '/agricultor',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para cadastrar novos Agricultors',
 					notes: 'Rota que realiza cadastro de um novo Agricultor',
 					tags: ['api'],
@@ -308,6 +338,12 @@ app.route(
 				method: 'PUT',
 				path: '/agricultor/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para alterar um Agricultor específico por ID',
 					notes: 'Esta rota realiza a alteração no Agricultor pesquisado',
 					tags: ['api'],
@@ -340,6 +376,12 @@ app.route(
 				method: 'DELETE',
 				path: '/agricultor/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para remover um Agricultor específico por ID',
 					notes: 'Remove o registro completo de um Agricultor pesquisado',
 					tags: ['api'],
@@ -373,6 +415,12 @@ app.route(
 				method: 'GET',
 				path: '/chamado',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar todos chamados',
 					notes: 'Retorna todos chamados',
 					tags: ['api'],
@@ -398,6 +446,12 @@ app.route(
 				method: 'GET',
 				path: '/chamado/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar o registro de um chamado específico',
 					notes: 'Essa rota retorna os dados de um chamado pesquisado por ID',
 					tags: ['api'],
@@ -426,6 +480,12 @@ app.route(
 				method: 'POST',
 				path: '/chamado',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para cadastrar novos chamados',
 					notes: 'Rota que realiza cadastro de um novo chamado',
 					tags: ['api'],
@@ -482,6 +542,12 @@ app.route(
 				method: 'PUT',
 				path: '/chamado/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para alterar um chamado específico por ID',
 					notes: 'Esta rota realiza a alteração no chamado pesquisado',
 					tags: ['api'],
@@ -523,6 +589,12 @@ app.route(
 				method: 'DELETE',
 				path: '/chamado/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para remover um chamado específico por ID',
 					notes: 'Remove o registro completo de um chamado pesquisado',
 					tags: ['api'],
@@ -556,6 +628,12 @@ app.route(
 				method: 'GET',
 				path: '/consultor',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar todos consultores',
 					notes: 'Retorna todos consultores',
 					tags: ['api'],
@@ -581,6 +659,12 @@ app.route(
 				method: 'GET',
 				path: '/consultor/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar o registro de um consultor específico',
 					notes: 'Essa rota retorna os dados de um consultor pesquisado por ID',
 					tags: ['api'],
@@ -609,6 +693,12 @@ app.route(
 				method: 'POST',
 				path: '/consultor',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para cadastrar novos consultors',
 					notes: 'Rota que realiza cadastro de um novo consultor',
 					tags: ['api'],
@@ -652,6 +742,12 @@ app.route(
 				method: 'PUT',
 				path: '/consultor/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para alterar um consultor específico por ID',
 					notes: 'Esta rota realiza a alteração no consultor pesquisado',
 					tags: ['api'],
@@ -687,6 +783,12 @@ app.route(
 				method: 'DELETE',
 				path: '/consultor/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para remover um consultor específico por ID',
 					notes: 'Remove o registro completo de um consultor pesquisado',
 					tags: ['api'],
@@ -721,6 +823,12 @@ app.route(
 				method: 'GET',
 				path: '/produto',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar todos produtos',
 					notes: 'Retorna todos produtos',
 					tags: ['api'],
@@ -746,6 +854,12 @@ app.route(
 				method: 'GET',
 				path: '/produto/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar o registro de um produto específico',
 					notes: 'Essa rota retorna os dados de um produto pesquisado por ID',
 					tags: ['api'],
@@ -774,6 +888,12 @@ app.route(
 				method: 'POST',
 				path: '/produto',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para cadastrar novos produtos',
 					notes: 'Rota que realiza cadastro de um novo produto',
 					tags: ['api'],
@@ -826,6 +946,12 @@ app.route(
 				method: 'PUT',
 				path: '/produto/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para alterar um produto específico por ID',
 					notes: 'Esta rota realiza a alteração no produto pesquisado',
 					tags: ['api'],
@@ -866,6 +992,12 @@ app.route(
 				method: 'DELETE',
 				path: '/produto/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para remover um produto específico por ID',
 					notes: 'Remove o registro completo de um produto pesquisado',
 					tags: ['api'],
@@ -898,6 +1030,12 @@ app.route(
 				method: 'GET',
 				path: '/usuario',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar todas usuarios',
 					notes: 'Retorna todas usuarios',
 					tags: ['api'],
@@ -923,6 +1061,12 @@ app.route(
 				method: 'GET',
 				path: '/usuario/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para listar o registro de um usuário específico',
 					notes: 'Essa rota retorna os dados de um usuário pesquisado por ID',
 					tags: ['api'],
@@ -951,6 +1095,12 @@ app.route(
 				method: 'POST',
 				path: '/usuario',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para cadastrar novos usuarios',
 					notes: 'Rota que realiza cadastro de um novo usuario',
 					tags: ['api'],
@@ -1017,6 +1167,12 @@ app.route(
 				method: 'PUT',
 				path: '/usuario/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para alterar um usuario específico por ID',
 					notes: 'Esta rota realiza a alteração no usuario pesquisado',
 					tags: ['api'],
@@ -1059,6 +1215,12 @@ app.route(
 				method: 'DELETE',
 				path: '/usuario/{id}',
 				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
 					description: 'Rota para remover um usuario específico por ID',
 					notes: 'Remove o registro completo de um usuario pesquisado',
 					tags: ['api'],
