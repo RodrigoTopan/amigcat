@@ -32,7 +32,7 @@ class Anuncio{
 	 async CadastrarAnuncio(conexao,anuncio){
 	 	//Instanciando objeto empresa
 	 	const cadastro = await conexao.anuncioModel.create({
-	 		id: anuncio.id,
+	 		//id: anuncio.id,
 	 		foto: anuncio.foto,
 	 		descricao: anuncio.descricao,
 	 		preco: anuncio.preco,

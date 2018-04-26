@@ -40,7 +40,9 @@ app.route(
 				config: {
 					cors: {
 				            origin: ['*'],
-				            additionalHeaders: ['cache-control', 'x-requested-with']
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            'access-control-request-method': 'GET',
+						    'access-control-request-headers': ''
 				    },
 					description: 'Rota para listar todos anuncios',
 					notes: 'Retorna todos anuncios',
@@ -95,6 +97,12 @@ app.route(
 				method: 'POST',
 				path: '/anuncio',
 				config: {
+				    cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            'access-control-request-method': 'GET',
+						    'access-control-request-headers': ''
+				    },
 					description: 'Rota para cadastrar novos anuncios',
 					notes: 'Rota que realiza cadastro de um novo anuncio',
 					tags: ['api'],
@@ -150,9 +158,9 @@ app.route(
 					notes: 'Esta rota realiza a alteração no anuncio pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						params:{
 							id:Joi.number().required(),
 						},
@@ -190,9 +198,9 @@ app.route(
 					notes: 'Remove o registro completo de um anuncio pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),//Não esquecer o unknown para não dar bad request
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
 						params: {
 							id: Joi.string().required()
 						}
@@ -223,9 +231,9 @@ app.route(
 					notes: 'Retorna todos Agricultores',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
@@ -248,9 +256,9 @@ app.route(
 					notes: 'Essa rota retorna os dados de um Agricultor pesquisado por ID',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						//Params são os valores recebidos pela url
 						params: {
 							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
@@ -276,9 +284,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo Agricultor',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							
 						}
@@ -304,9 +312,9 @@ app.route(
 					notes: 'Esta rota realiza a alteração no Agricultor pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						params:{
 							id:Joi.number().required(),
 						},
@@ -336,9 +344,9 @@ app.route(
 					notes: 'Remove o registro completo de um Agricultor pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),//Não esquecer o unknown para não dar bad request
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
 						params: {
 							id: Joi.string().required()
 						}
@@ -369,9 +377,9 @@ app.route(
 					notes: 'Retorna todos chamados',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
@@ -394,9 +402,9 @@ app.route(
 					notes: 'Essa rota retorna os dados de um chamado pesquisado por ID',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						//Params são os valores recebidos pela url
 						params: {
 							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
@@ -422,9 +430,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo chamado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							titulo: Joi.string()
 							.min(3)
@@ -478,9 +486,9 @@ app.route(
 					notes: 'Esta rota realiza a alteração no chamado pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						params:{
 							id:Joi.number().required(),
 						},
@@ -519,9 +527,9 @@ app.route(
 					notes: 'Remove o registro completo de um chamado pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),//Não esquecer o unknown para não dar bad request
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
 						params: {
 							id: Joi.string().required()
 						}
@@ -552,9 +560,9 @@ app.route(
 					notes: 'Retorna todos consultores',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
@@ -577,9 +585,9 @@ app.route(
 					notes: 'Essa rota retorna os dados de um consultor pesquisado por ID',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						//Params são os valores recebidos pela url
 						params: {
 							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
@@ -605,9 +613,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo consultor',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							RG: Joi.string()
 							.min(3)
@@ -648,9 +656,9 @@ app.route(
 					notes: 'Esta rota realiza a alteração no consultor pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						params:{
 							id:Joi.number().required(),
 						},
@@ -683,9 +691,9 @@ app.route(
 					notes: 'Remove o registro completo de um consultor pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),//Não esquecer o unknown para não dar bad request
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
 						params: {
 							id: Joi.string().required()
 						}
@@ -717,9 +725,9 @@ app.route(
 					notes: 'Retorna todos produtos',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
@@ -742,9 +750,9 @@ app.route(
 					notes: 'Essa rota retorna os dados de um produto pesquisado por ID',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						//Params são os valores recebidos pela url
 						params: {
 							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
@@ -770,9 +778,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo produto',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							nome: Joi.string()
 							.min(3)
@@ -822,9 +830,9 @@ app.route(
 					notes: 'Esta rota realiza a alteração no produto pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						params:{
 							id:Joi.number().required(),
 						},
@@ -862,9 +870,9 @@ app.route(
 					notes: 'Remove o registro completo de um produto pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),//Não esquecer o unknown para não dar bad request
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
 						params: {
 							id: Joi.string().required()
 						}
@@ -894,9 +902,9 @@ app.route(
 					notes: 'Retorna todas usuarios',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
@@ -919,9 +927,9 @@ app.route(
 					notes: 'Essa rota retorna os dados de um usuário pesquisado por ID',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						//Params são os valores recebidos pela url
 						params: {
 							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
@@ -947,9 +955,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo usuario',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							nome: Joi.string()
 							.min(3)
@@ -1013,9 +1021,9 @@ app.route(
 					notes: 'Esta rota realiza a alteração no usuario pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						params:{
 							id:Joi.number().required(),
 						},
@@ -1055,9 +1063,9 @@ app.route(
 					notes: 'Remove o registro completo de um usuario pesquisado',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),//Não esquecer o unknown para não dar bad request
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
 						params: {
 							id: Joi.string().required()
 						}
