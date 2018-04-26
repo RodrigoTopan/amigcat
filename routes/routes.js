@@ -97,12 +97,12 @@ app.route(
 				method: 'POST',
 				path: '/anuncio',
 				config: {
-				    cors: {
+				    /*cors: {
 				            origin: ['*'],
 				            additionalHeaders: ['cache-control', 'x-requested-with'],
 				            'access-control-request-method': 'GET',
 						    'access-control-request-headers': ''
-				    },
+				    },*/
 					description: 'Rota para cadastrar novos anuncios',
 					notes: 'Rota que realiza cadastro de um novo anuncio',
 					tags: ['api'],
