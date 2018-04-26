@@ -38,12 +38,12 @@ app.route(
 				method: 'GET',
 				path: '/anuncio',
 				config: {
-					/*cors: {
+					cors: {
 				            origin: ['*'],
 				            additionalHeaders: ['cache-control', 'x-requested-with'],
 				            'access-control-request-method': 'GET',
 						    'access-control-request-headers': ''
-				    },*/
+				    },
 					description: 'Rota para listar todos anuncios',
 					notes: 'Retorna todos anuncios',
 					tags: ['api'],
