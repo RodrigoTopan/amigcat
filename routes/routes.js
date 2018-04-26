@@ -45,7 +45,7 @@ app.route(
 						    'access-control-request-headers': ''
 				    },
 					description: 'Rota para listar todos anuncios',
-					notes: 'Retorna todos anuncios',
+					notes: 'Retorna todos anuncios cadastrados',
 					tags: ['api'],
 					validate: {
 						/*headers: Joi.object({
