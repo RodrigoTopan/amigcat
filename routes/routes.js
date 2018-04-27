@@ -412,14 +412,12 @@ app.route(
 							id:Joi.number().required(),
 						},
 						payload: {
-							nome: Joi.string()
-							.min(3)
-							.max(100),
+							nome: Joi.string(),
 							foto: Joi.string(),
 							descricao: Joi.string(),
 							preco: Joi.string(),
 							dataInicio: Joi.string(),
-							dataFim: Joi.string(),
+							dataFim: Joi.string()
 						}
 					},
 					handler: async (req, reply) => {
