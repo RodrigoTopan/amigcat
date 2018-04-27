@@ -12,8 +12,10 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    BD = new Database(),
 	    Agricultor = require('../controllers/agricultor'),
 	    AgricultorOB = new Agricultor(),
-	    Usuario = require('../controllers/usuario');
+	    Usuario = require('../controllers/usuario'),
 	    UsuarioOB = new Usuario(),
+	    Funcionario = require('../controllers/funcionario');
+	    FuncionarioOB = new Funcionario(),
 	    Anuncio = require('../controllers/anuncio'),
 	    AnuncioOB = new Anuncio(),
 	    Chamado = require('../controllers/chamado'),
@@ -29,6 +31,245 @@ const Hapi = require('hapi'),//Gerencia Rotas
 class Routes{
  async rotas(){//Utilização de arrow functions
 		await BD.conectar(); // estabelecimento de conexão
+
+
+
+// Cadastrando Rotas de manipulação de funcionario
+app.route(
+	[
+			//Listar todas as funcionarios
+			{
+				method: 'GET',
+				path: '/funcionario',
+				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
+					description: 'Rota para listar todos funcionarioes',
+					notes: 'Retorna todos funcionarioes',
+					tags: ['api'],
+					validate: {
+						headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),
+					},
+					handler: async (req, reply) => {
+						try {
+							const funcionario = await FuncionarioOB.pesquisarFuncionarios(BD);
+							console.log(funcionario);
+							return funcionario;
+						} catch (e) {
+							console.log('Erro ao listar funcionarioes' + e);
+							return 'Ocorreu um erro no processo';
+						}
+					}
+				}
+			},
+			//Listar um funcionario específico por ID
+			{
+				method: 'GET',
+				path: '/funcionario/{id}',
+				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
+					description: 'Rota para listar o registro de um funcionario específico',
+					notes: 'Essa rota retorna os dados de um funcionario pesquisado por ID',
+					tags: ['api'],
+					validate: {
+						/*headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),*/
+						//Params são os valores recebidos pela url
+						params: {
+							id: Joi.number().required().description('O ID é um campo obrigatório para realizar a pesquisa')
+						}
+					},
+					handler: async (req, reply) => {
+						try{
+							const funcionarioPesquisada = await FuncionarioOB.pesquisarFuncionario(BD, req.params.id);  
+							console.log(funcionarioPesquisada);
+							return funcionarioPesquisada;
+						}catch(e){
+							return 'Ocorreu um problema ao buscar por funcionario';
+						}
+					}
+				}
+			},
+			//Cadastro de uma funcionario
+			{
+				method: 'POST',
+				path: '/funcionario',
+				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
+					description: 'Rota para cadastrar novos funcionarios',
+					notes: 'Rota que realiza cadastro de um novo funcionario',
+					tags: ['api'],
+					validate: {
+						headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),
+						payload: {
+							nome: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Nome que da usuario'),
+							username: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Username para login'),
+							password: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Senha para login'),
+							localizacao: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Endereço do usuario'),
+							telefone: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Telefone para contato'),
+							celular: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Telefone celular para contato'),
+							email: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Email para contato'),
+							foto: Joi.string()
+							.min(3)
+							.max(200)
+							.description('Foto opcional para usuário'),
+							RG: Joi.string()
+							.min(3)
+							.max(10)
+							.required()
+							.description('RG funcionario'),
+							CPF: Joi.string()
+							.min(3)
+							.max(12)
+							.required()
+							.description('CPF funcionario'),
+							
+						}
+					},
+					handler: async (req, reply) => {
+						try {
+							//Passando os dados do corpo da requisição para o cadastro						
+							const funcionarioCadastrada = await FuncionarioOB.CadastrarFuncionario(BD, req.payload);
+							return funcionarioCadastrada;
+						} catch (e) {
+							console.log('Erro ao cadastrar funcionario' + e);
+							return 'Erro no processo';
+						}
+					}
+				}
+			},
+			//Alterar uma funcionario específica por ID
+			{
+				method: 'PUT',
+				path: '/funcionario/{id}',
+				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
+					description: 'Rota para alterar um funcionario específico por ID',
+					notes: 'Esta rota realiza a alteração no funcionario pesquisado',
+					tags: ['api'],
+					validate: {
+						/*headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),*/
+						params:{
+							id:Joi.number().required(),
+						},
+						payload: {
+							nome: Joi.string()
+							.min(3)
+							.max(100),
+							username: Joi.string(),
+							password: Joi.string(),
+							localizacao: Joi.string(),
+							telefone: Joi.string(),
+							celular: Joi.string(),
+							email: Joi.string(),
+							foto: Joi.string(),
+							RG: Joi.string().min(3).max(10).required(),
+							CPF: Joi.string().min(3).max(12).required(),
+						}
+					},
+					handler: async (req, reply) => {
+						try {
+							const id = req.params.id;
+							const dados = req.payload;
+							const funcionarioAlterada = await FuncionarioOB.alterarFuncionario(BD, id, dados);
+							//if(empresaAlterada === 1)
+							return 'funcionario alterado com sucesso';
+						} catch (e) {
+							console.log('Erro ao alterar funcionario' + e);
+							return 'Ocorreu um erro no processo';
+						}
+					}
+				}
+			},
+			//Remover um funcionario específico por ID
+			{
+				method: 'DELETE',
+				path: '/funcionario/{id}',
+				config: {
+					cors: {
+				            origin: ['*'],
+				            additionalHeaders: ['cache-control', 'x-requested-with'],
+				            //access-control-request-method: 'GET',
+						    //access-control-request-headers: ''
+				    },
+					description: 'Rota para remover um funcionario específico por ID',
+					notes: 'Remove o registro completo de um funcionario pesquisado',
+					tags: ['api'],
+					validate: {
+						/*headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),//Não esquecer o unknown para não dar bad request*/
+						params: {
+							id: Joi.string().required()
+						}
+					},
+					handler: async (req, reply) => {
+						try {
+							const funcionarioRemovida = await FuncionarioOB.removerFuncionario(BD, req.params.id);  
+							if(funcionarioRemovida === 1)
+								return 'funcionario removido com sucesso';
+						} catch (e) {
+							console.log('Erro em remover funcionario' + e);
+							return 'Ocorreu um erro no processo';
+						}
+					}
+				}
+			}
+			]);		
 
 // Cadastrando Rotas de manipulação de anuncio
 app.route(

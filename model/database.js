@@ -11,6 +11,7 @@ class Database {
 		this.consultorModel = {}; //DEFININDO MEU OBJETO DE consultor
 		this.produtoModel = {}; //DEFININDO MEU OBJETO DE produto
 		this.usuarioModel = {}; //DEFININDO MEU OBJETO DE usuario
+		this.funcionarioModel = {}; //DEFININDO MEU OBJETO DE funcionario
  	}
 
 	async conectar(){
@@ -114,6 +115,29 @@ class Database {
 			tableName: 'CONSULTOR'
 		});
 
+		//Montando uma tabela
+		this.funcionarioModel = this.sequelize.define('FUNCIONARIO', {
+			id: { 
+				type: Sequelize.INTEGER,
+				primaryKey: true,
+				autoIncrement: true 
+			},
+			nome: { type: Sequelize.STRING },
+			username: { type: Sequelize.STRING },
+			password: { type: Sequelize.STRING },
+			localizacao: { type: Sequelize.STRING },
+			teefone: { type: Sequelize.STRING },
+			celular: { type: Sequelize.STRING },
+			email: { type: Sequelize.STRING },
+			foto: { type: Sequelize.STRING },
+			RG: { type: Sequelize.STRING },
+			CPF: { type: Sequelize.STRING},
+		},
+		{
+			freezeTableName: true,
+			tableName: 'FUNCIONARIO'
+		});
+
 
 		//Montando uma tabela
 		this.anuncioModel = this.sequelize.define('ANUNCIO', {
@@ -160,7 +184,7 @@ class Database {
 		await this.chamadoModel.sync({force: false}).then(() => {});
 		await this.produtoModel.sync({force: false}).then(() => {});
 		await this.agricultorModel.sync({force: false}).then(() => {});
-
+		await this.funcionarioModel.sync({force: true}).then(() => {});
 	}
 }
 
