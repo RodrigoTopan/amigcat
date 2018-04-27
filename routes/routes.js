@@ -100,7 +100,7 @@ app.route(
 					cors: {
 				            origin: ['*'],
 				            additionalHeaders: ['cache-control', 'x-requested-with'],
-				            "access-control-request-method" : 'POST',
+				            credentials: true
 						    //access-control-request-headers: ''
 				    },
 					description: 'Rota para cadastrar novos anuncios',
