@@ -947,10 +947,6 @@ app.route(
 						/*headers: Joi.object({
 							authorization: Joi.string().required()
 						}).unknown(),*/
-						validate: {
-						headers: Joi.object({
-							authorization: Joi.string().required()
-						}).unknown(),
 						payload: {
 							nome: Joi.string()
 							.min(3)
@@ -1005,8 +1001,7 @@ app.route(
 							.min(3)
 							.max(10)
 							.required()
-							.description('Duracao de consultor'),
-							
+							.description('Duracao de consultor')					
 						}
 					},
 					handler: async (req, reply) => {
@@ -1042,10 +1037,6 @@ app.route(
 						params:{
 							id:Joi.number().required(),
 						},
-						validate: {
-						headers: Joi.object({
-							authorization: Joi.string().required()
-						}).unknown(),
 						payload: {
 							nome: Joi.string()
 							.description('Nome que da usuario'),
