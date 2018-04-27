@@ -947,7 +947,50 @@ app.route(
 						/*headers: Joi.object({
 							authorization: Joi.string().required()
 						}).unknown(),*/
+						validate: {
+						headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),
 						payload: {
+							nome: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Nome que da usuario'),
+							username: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Username para login'),
+							password: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Senha para login'),
+							localizacao: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Endereço do usuario'),
+							telefone: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Telefone para contato'),
+							celular: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Telefone celular para contato'),
+							email: Joi.string()
+							.min(3)
+							.max(200)
+							.required()
+							.description('Email para contato'),
+							foto: Joi.string()
+							.min(3)
+							.max(200)
+							.description('Foto opcional para usuário'),
 							RG: Joi.string()
 							.min(3)
 							.max(10)
@@ -999,10 +1042,34 @@ app.route(
 						params:{
 							id:Joi.number().required(),
 						},
+						validate: {
+						headers: Joi.object({
+							authorization: Joi.string().required()
+						}).unknown(),
 						payload: {
-							RG: Joi.string().min(3).max(10).required(),
-							CPF: Joi.string().min(3).max(12).required(),
-							especialidade: Joi.string().required(),
+							nome: Joi.string()
+							.description('Nome que da usuario'),
+							username: Joi.string()
+							.description('Username para login'),
+							password: Joi.string()
+							.description('Senha para login'),
+							localizacao: Joi.string()
+							.description('Endereço do usuario'),
+							telefone: Joi.string()
+							.description('Telefone para contato'),
+							celular: Joi.string()
+							.description('Telefone celular para contato'),
+							email: Joi.string()
+							.description('Email para contato'),
+							foto: Joi.string()
+							.description('Foto opcional para usuário'),
+							RG: Joi.string()
+							.description('Duracao de consultor'),
+							CPF: Joi.string()
+							.description('Nome que da consultor'),
+							especialidade: Joi.string()
+							.description('Duracao de consultor'),
+							
 						}
 					},
 					handler: async (req, reply) => {
