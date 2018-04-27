@@ -52,9 +52,9 @@ app.route(
 					notes: 'Retorna todos funcionarioes',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 					},
 					handler: async (req, reply) => {
 						try {
@@ -117,9 +117,9 @@ app.route(
 					notes: 'Rota que realiza cadastro de um novo funcionario',
 					tags: ['api'],
 					validate: {
-						headers: Joi.object({
+						/*headers: Joi.object({
 							authorization: Joi.string().required()
-						}).unknown(),
+						}).unknown(),*/
 						payload: {
 							nome: Joi.string()
 							.min(3)
