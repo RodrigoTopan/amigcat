@@ -24,7 +24,9 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    ConsultorOB = new Consultor(),
 	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
-		app = new Hapi.Server( process.env.PORT, {cors: true});
+		app = new Hapi.Server({ 
+			port: process.env.PORT || 8080 //process.env.PORT 
+		});
 
 class Routes{
  async rotas(){//Utilização de arrow functions
