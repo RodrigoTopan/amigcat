@@ -12,6 +12,7 @@
   "author": "Fatec",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "dotenv": "5.0.1",
     "fs": "0.0.1-security",
     "hapi": "17.3.1",
