@@ -1569,10 +1569,10 @@ app.route(
 
 			//app.ext('onPreResponse', corsHeaders);
 		    //gambi para pegar o host certo no heroku
-			    app.ext('onPreResponse', async(request, h)=>{
-			    	h.headers['Access-Control-Allow-Origin'] = ' ';
-			    	return h.continue;
-			    });
+			    server.ext('onPreResponse', function (request, reply) {
+					request.response.header('Referrer-Policy', 'origin');
+					reply.continue;
+				});
 			    app.ext('onRequest', async (request, h) => {
 			      request.headers['x-forwarded-host'] = (request.headers['x-forwarded-host'] || request.info.host);
 			      return h.continue;
