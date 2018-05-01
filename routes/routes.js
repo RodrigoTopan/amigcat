@@ -25,9 +25,10 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
 		app = new Hapi.Server({ 
-			port: process.env.PORT || 8080 //process.env.PORT 
+			port: process.env.PORT || 8080, //process.env.PORT 
+			routes: { cors: true}
 		});
-		var corsHeaders = require('hapi-cors-headers');
+		//var corsHeaders = require('hapi-cors-headers');
 
 class Routes{
  async rotas(){//Utilização de arrow functions
@@ -1561,7 +1562,7 @@ app.route(
 			await app.start();
 			console.log(`Servidor rodando na porta : ${app.info.port}`);
 
-			app.ext('onPreResponse', corsHeaders);
+			//app.ext('onPreResponse', corsHeaders);
 		    //gambi para pegar o host certo no heroku
 			    app.ext('onRequest', async (request, h) => {
 			      request.headers['x-forwarded-host'] = (request.headers['x-forwarded-host'] || request.info.host);
