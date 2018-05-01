@@ -28,8 +28,7 @@ const Hapi = require('hapi'),//Gerencia Rotas
 			port: process.env.PORT || 8080, //process.env.PORT 
 			routes: { 
 				cors: true,
-				origin: '*',
-          		additionalHeaders: 'token'
+				headers: ["Accept", "Authorization", "Content-Type", "If-None-Match", "Accept-language"]
 			}
 		});
 		//var corsHeaders = require('hapi-cors-headers');
