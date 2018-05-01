@@ -15,6 +15,7 @@
     "dotenv": "5.0.1",
     "fs": "0.0.1-security",
     "hapi": "17.3.1",
+    "hapi-cors": "^1.0.1",
     "hapi-pino": "4.0.4",
     "hapi-swagger": "9.1.1",
     "inert": "5.1.0",
