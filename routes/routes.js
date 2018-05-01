@@ -26,7 +26,10 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    ProdutoOB = new Produto(),
 	    HapiCors = require('hapi-cors'),
 		app = new Hapi.Server({ 
-			port: process.env.PORT || 8080 //process.env.PORT 
+			port: process.env.PORT || 8080, //process.env.PORT 
+			routes: {
+                cors: true
+            }
 		});
 
 class Routes{
@@ -1552,7 +1555,10 @@ app.route(
 				[
 					Inert,
 					Vision,
-					HapiCors,
+					{
+						plugin: HapiCors,
+						origins: ['*']
+					},
 					{
 						plugin: HapiSwagger,
 						options: { info: { title: 'AMIGO CAT', description: 'AMIGO CAT', version: '1.0' } }
