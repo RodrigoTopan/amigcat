@@ -1558,7 +1558,6 @@ app.route(
 				[
 					Inert,
 					Vision,
-					Cors,
 					{
 						plugin: HapiSwagger,
 						options: { info: { title: 'AMIGO CAT', description: 'AMIGO CAT', version: '1.0' } }
@@ -1570,6 +1569,7 @@ app.route(
 
 			//app.ext('onPreResponse', corsHeaders);
 		    //gambi para pegar o host certo no heroku
+			    app.ext('onPreResponse', Cors);
 			    app.ext('onRequest', async (request, h) => {
 			      request.headers['x-forwarded-host'] = (request.headers['x-forwarded-host'] || request.info.host);
 			      return h.continue;
