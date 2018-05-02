@@ -29,6 +29,8 @@ const Hapi = require('hapi'),//Gerencia Rotas
 			routes: { cors: true }
 		});
 
+		//app.setResponseHeader('Access-Control-Allow-Origin', '*');
+
 class Routes{
  async rotas(){//Utilização de arrow functions
 		await BD.conectar(); // estabelecimento de conexão
@@ -1561,6 +1563,11 @@ app.route(
 		    //gambi para pegar o host certo no heroku
 			    app.ext('onRequest', async (request, h) => {
 			      request.headers['x-forwarded-host'] = (request.headers['x-forwarded-host'] || request.info.host);
+			      return h.continue;
+			    });
+
+			    app.ext('onPreResponse', async (request, h) => {
+			      h.header('Access-Control-Allow-Origin','*');
 			      return h.continue;
 			    });
 
