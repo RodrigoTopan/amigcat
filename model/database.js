@@ -180,7 +180,7 @@ class Database {
 
 		await this.usuarioModel.sync({force: false}).then(() => {});		
 		await this.anuncioModel.sync({force: false}).then(() => {});
-		await this.consultorModel.sync({force: true}).then(() => {});
+		await this.consultorModel.sync({force: false}).then(() => {});
 		await this.chamadoModel.sync({force: false}).then(() => {});
 		await this.produtoModel.sync({force: false}).then(() => {});
 		await this.agricultorModel.sync({force: false}).then(() => {});
