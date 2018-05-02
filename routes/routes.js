@@ -1567,7 +1567,7 @@ app.route(
 			    });
 
 			    app.ext('onPreResponse', async (request, h) => {
-			      request.response.header('Access-Control-Allow-Origin1', '*');
+			      request.response.header('Access-Control-Allow-Origin', '*');
 			      return h.continue;
 			    });
 
