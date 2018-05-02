@@ -967,9 +967,6 @@ app.route(
 							.required()
 							.description('Endereço do usuario'),
 							telefone: Joi.string()
-							.min(3)
-							.max(200)
-							.required()
 							.description('Telefone para contato'),
 							celular: Joi.string()
 							.min(3)

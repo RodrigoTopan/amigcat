@@ -102,7 +102,7 @@ class Database {
 			username: { type: Sequelize.STRING },
 			password: { type: Sequelize.STRING },
 			localizacao: { type: Sequelize.STRING },
-			teefone: { type: Sequelize.STRING },
+			telefone: { type: Sequelize.STRING },
 			celular: { type: Sequelize.STRING },
 			email: { type: Sequelize.STRING },
 			foto: { type: Sequelize.STRING },
@@ -180,7 +180,7 @@ class Database {
 
 		await this.usuarioModel.sync({force: false}).then(() => {});		
 		await this.anuncioModel.sync({force: false}).then(() => {});
-		await this.consultorModel.sync({force: false}).then(() => {});
+		await this.consultorModel.sync({force: true}).then(() => {});
 		await this.chamadoModel.sync({force: false}).then(() => {});
 		await this.produtoModel.sync({force: false}).then(() => {});
 		await this.agricultorModel.sync({force: false}).then(() => {});
