@@ -25,7 +25,8 @@ const Hapi = require('hapi'),//Gerencia Rotas
 	    Produto = require('../controllers/produto'),
 	    ProdutoOB = new Produto(),
 		app = new Hapi.Server({ 
-			port: process.env.PORT || 8080 //process.env.PORT 
+			port: process.env.PORT || 8080, //process.env.PORT 
+			routes: { cors: true }
 		});
 
 class Routes{
@@ -1097,7 +1098,7 @@ app.route(
 					handler: async (req, reply) => {
 						try {
 							const consultorRemovida = await ConsultorOB.removerConsultor(BD, req.params.id);  
-							if(consultorRemovida === 1)
+							if(consultorRemovida == 1)
 								return 'consultor removido com sucesso';
 						} catch (e) {
 							console.log('Erro em remover consultor' + e);

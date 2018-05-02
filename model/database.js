@@ -126,7 +126,7 @@ class Database {
 			username: { type: Sequelize.STRING },
 			password: { type: Sequelize.STRING },
 			localizacao: { type: Sequelize.STRING },
-			teefone: { type: Sequelize.STRING },
+			telefone: { type: Sequelize.STRING },
 			celular: { type: Sequelize.STRING },
 			email: { type: Sequelize.STRING },
 			foto: { type: Sequelize.STRING },

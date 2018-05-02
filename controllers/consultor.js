@@ -83,7 +83,7 @@ class Consultor  {
 
 	}
 
-	async removerConsultor(id){
+	async removerConsultor(conexao, id){
 		try{
 			const consultor_removida = await conexao.consultorModel.destroy(
 				{where:{id: id}}
