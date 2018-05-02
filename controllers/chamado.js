@@ -20,6 +20,7 @@ class Chamado  {
 	 		chamado.descricao = descricao;
 	 		chamado.dataInicio = dataInicio;
 	 		chamado.dataFim = dataFim;
+	 		chamado.status = status;
 	            //console.log(chamado);
 	            return chamado;
 	        });

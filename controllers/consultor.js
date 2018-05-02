@@ -21,7 +21,7 @@ class Consultor  {
 	 		const consultor = new Consultor();
 	 		const { id, nome, username, password, localizacao, telefone, celular, email, foto, RG, CPF, especialidade } = item;
 	 		consultor.id = id;
-	 		consultor.id = id;
+	 		//consultor.id = id;
 	 		consultor.nome = nome;
 	 		consultor.username = username;
 	 		consultor.password = password;
