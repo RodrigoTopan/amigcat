@@ -1568,9 +1568,11 @@ app.route(
 
 			    app.ext('onPreResponse', async (request, h) => {
 			      request.response.header('Access-Control-Allow-Origin', '*');
+			      request.response.header('Access-Control-Allow-Methods', 'GET, POST, PUT , DELETE');
+			      request.response.header('Access-Control-Allow-Headers', 'content-type');
+			      request.response.header('Access-Control-Allow-Credentials', true);
 			      return h.continue;
 			    });
-
 		}
 		catch (e) {
 			console.log('Erro com servidor' + e);
